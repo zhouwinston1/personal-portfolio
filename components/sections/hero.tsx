@@ -37,10 +37,10 @@ export function Hero() {
             <Image
               src="/headshot.png"
               alt="Portrait of Winston Zhou"
-              width={389}
-              height={389}
+              width={189}
+              height={204}
               priority
-              className="aspect-square w-full object-cover grayscale contrast-[1.05] sepia-[.15]"
+              className="aspect-square w-full object-cover object-top"
             />
             <figcaption className="label mt-2 flex justify-between">
               <span>fig. 1</span>

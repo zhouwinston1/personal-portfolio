@@ -81,7 +81,7 @@ export type Project = {
   tagline: string
   stack: string[]
   points: string[]
-  visual: "dashboard" | "lineage"
+  visual: "dashboard" | { src: string; alt: string }
 }
 
 export const projects: Project[] = [
@@ -102,7 +102,10 @@ export const projects: Project[] = [
     date: "Apr 2026",
     tagline: "Instant lineage and ownership lookup across an enterprise's data.",
     stack: ["React Flow", "FastAPI", "Pydantic", "Azure Cosmos DB"],
-    visual: "lineage",
+    visual: {
+      src: "/control-room.png",
+      alt: "Control Room Catalog features: data risk tags, bulk upload, domain explorer, lineage builder, data source tracking, schema versioning, and domain tree view",
+    },
     points: [
       "Full-stack metadata platform that replaces manual data discovery with instant lineage and relationship lookup across schemas, sources, and ownership.",
       "Shipped **20+ features** including an interactive lineage graph; optimized multi-hop query execution, cutting latency on **10+ APIs by 60%**.",
