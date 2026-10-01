@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Reveal } from "@/components/reveal"
 import { RichText } from "@/components/rich-text"
 import { SectionHeading } from "@/components/section-heading"
-import { DashboardVisual, LineageVisual } from "@/components/project-visuals"
+import { DashboardVisual } from "@/components/project-visuals"
 import { archive, projects } from "@/lib/data"
 
 export function Projects() {
@@ -27,8 +27,18 @@ export function Projects() {
         {projects.map((p, i) => (
           <Reveal key={p.name} delay={i * 100}>
             <Card className="group h-full gap-0 rounded-sm py-0 ring-0 border bg-card shadow-none transition-shadow hover:shadow-[6px_6px_0_0_var(--signal)]">
-              <div className="aspect-[5/3] border-b bg-muted/50">
-                {p.visual === "dashboard" ? <DashboardVisual /> : <LineageVisual />}
+              <div className="relative aspect-video overflow-hidden border-b bg-muted/50">
+                {p.visual === "dashboard" ? (
+                  <DashboardVisual />
+                ) : (
+                  <Image
+                    src={p.visual.src}
+                    alt={p.visual.alt}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
               </div>
               <CardHeader className="gap-2 px-6 pt-6">
                 <div className="flex items-baseline justify-between gap-4">
